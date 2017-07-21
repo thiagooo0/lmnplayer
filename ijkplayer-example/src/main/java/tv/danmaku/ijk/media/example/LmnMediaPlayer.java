@@ -8,8 +8,6 @@ import android.view.Gravity;
 import android.view.Surface;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
 import tv.danmaku.ijk.media.example.application.Settings;
