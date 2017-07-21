@@ -23,6 +23,9 @@ import android.preference.PreferenceManager;
 
 import tv.danmaku.ijk.media.example.R;
 
+/**
+ * 得道一些存放在sharePreferences中的关于眼镜设置
+ */
 public class Settings {
     private Context mAppContext;
     private SharedPreferences mSharedPreferences;
@@ -52,9 +55,14 @@ public class Settings {
         }
     }
 
+    /**
+     * 是否使用硬解码
+     */
     public boolean getUsingMediaCodec() {
         String key = mAppContext.getString(R.string.pref_key_using_media_codec);
-        return mSharedPreferences.getBoolean(key, false);
+//        return mSharedPreferences.getBoolean(key, true);
+        //always use the MediaCodec
+        return true;
     }
 
     public boolean getUsingMediaCodecAutoRotate() {

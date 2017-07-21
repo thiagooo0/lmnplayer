@@ -88,6 +88,7 @@ public class IjkVideoView extends FrameLayout implements MediaController.MediaPl
     // All the stuff we need for playing and showing a video
     private IRenderView.ISurfaceHolder mSurfaceHolder = null;
     private IMediaPlayer mMediaPlayer = null;
+
     // private int         mAudioSession;
     private int mVideoWidth;
     private int mVideoHeight;
@@ -159,7 +160,9 @@ public class IjkVideoView extends FrameLayout implements MediaController.MediaPl
         mAppContext = context.getApplicationContext();
         mSettings = new Settings(mAppContext);
 
+        //看下是否启动后台播放
         initBackground();
+        //用什么东西去渲染画面
         initRenders();
 
         mVideoWidth = 0;
@@ -184,6 +187,7 @@ public class IjkVideoView extends FrameLayout implements MediaController.MediaPl
     }
 
     public void setRenderView(IRenderView renderView) {
+        //移除之前的渲染器
         if (mRenderView != null) {
             if (mMediaPlayer != null)
                 mMediaPlayer.setDisplay(null);
@@ -196,6 +200,7 @@ public class IjkVideoView extends FrameLayout implements MediaController.MediaPl
 
         if (renderView == null)
             return;
+
 
         mRenderView = renderView;
         renderView.setAspectRatio(mCurrentAspectRatio);
@@ -338,7 +343,7 @@ public class IjkVideoView extends FrameLayout implements MediaController.MediaPl
                     (TextUtils.isEmpty(scheme) || scheme.equalsIgnoreCase("file"))) {
                 IMediaDataSource dataSource = new FileMediaDataSource(new File(mUri.toString()));
                 mMediaPlayer.setDataSource(dataSource);
-            }  else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
+            } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
                 mMediaPlayer.setDataSource(mAppContext, mUri, mHeaders);
             } else {
                 mMediaPlayer.setDataSource(mUri.toString());
@@ -416,6 +421,9 @@ public class IjkVideoView extends FrameLayout implements MediaController.MediaPl
 
             // Get the capabilities of the player for this stream
             // REMOVED: Metadata
+
+            mMediaPlayer.seekTo(0);
+            ((IjkMediaPlayer) mMediaPlayer).setSpeed(1);
 
             if (mOnPreparedListener != null) {
                 mOnPreparedListener.onPrepared(mMediaPlayer);
@@ -1090,6 +1098,9 @@ public class IjkVideoView extends FrameLayout implements MediaController.MediaPl
 
     private boolean mEnableBackgroundPlay = false;
 
+    /***
+     * 启动后台播放
+     */
     private void initBackground() {
         mEnableBackgroundPlay = mSettings.getEnableBackgroundPlay();
         if (mEnableBackgroundPlay) {

@@ -1,11 +1,10 @@
-<android.support.v4.widget.DrawerLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".activities.VideoActivity"
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".activities.VideoActivity">
 
     <!-- The main content view -->
     <FrameLayout
@@ -13,11 +12,11 @@
         android:layout_height="match_parent"
         android:background="#0099cc">
 
-        <tv.danmaku.ijk.media.example.widget.media.IjkVideoView
+        <tv.danmaku.ijk.media.example.LmnMediaPlayer
             android:id="@+id/video_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_gravity="center"></tv.danmaku.ijk.media.example.widget.media.IjkVideoView>
+            android:layout_gravity="center"></tv.danmaku.ijk.media.example.LmnMediaPlayer>
 
         <TextView
             android:id="@+id/toast_text_view"
@@ -49,7 +48,8 @@
     </FrameLayout>
 
     <!-- The navigation drawer -->
-    <FrameLayout android:id="@+id/right_drawer"
+    <FrameLayout
+        android:id="@+id/right_drawer"
         android:layout_width="240dp"
         android:layout_height="match_parent"
         android:layout_gravity="right"
