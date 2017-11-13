@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
         switch (view.getId()) {
             case R.id.floating_button:
                 Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-                intent.setType("video/*"); //选择视频 （mp4 3gp 是android支持的视频格式）
+                intent.setType("*/*"); //选择视频 （mp4 3gp 是android支持的视频格式）
                 intent.addCategory(Intent.CATEGORY_OPENABLE);
                 startActivityForResult(intent, 1);
                 break;
