@@ -84,7 +84,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void loadVideo(String path) {
-        ijkPlayer.load(path);
+        ijkPlayer.setVideoPath(path);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        IjkMediaPlayer.native_profileEnd();
     }
 
     public void onClick(View view) {
