@@ -1,14 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion "26.0.2"
+    compileSdkVersion 27
+    buildToolsVersion '27.0.3'
 
 
     defaultConfig {
         applicationId "com.ehang.ijkpleyerdemo"
         minSdkVersion 21
-        targetSdkVersion 26
+        targetSdkVersion 27
         versionCode 1
         versionName "1.0"
 
@@ -22,23 +22,29 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile 'com.android.support:appcompat-v7:26.1.0'
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
-//    testCompile 'junit:junit:4.12'
-//    androidTestCompile('com.android.support.test.espresso:espresso-core:3.0.1', {
-//        exclude group: 'com.android.support', module: 'support-annotations'
-//    })
-    compile project(':ijkplayer-java')
-    compile project(':ijkplayer-armv5')
-    compile project(':ijkplayer-armv7a')
-    compile project(':ijkplayer-arm64')
-    compile project(':ijkplayer-x86')
-    compile project(':ijkplayer-x86_64')
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.1'
+    androidTestImplementation 'junit:junit:4.12'
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:3.0.1', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    implementation project(':ijkplayer-java')
+//    implementation project(':ijkplayer-armv5')
+//    implementation project(':ijkplayer-armv7a')
+//    implementation project(':ijkplayer-arm64')
+//    implementation project(':ijkplayer-x86')
+//    implementation project(':ijkplayer-x86_64')
+    implementation project(':ijkplayerso')
 //    compile project(':ijkplayer-exo')
 
-    compile 'com.android.support:design:22.2.0'
+    implementation 'com.android.support:design:27.1.1'
 }

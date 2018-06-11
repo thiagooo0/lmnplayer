@@ -1,10 +1,8 @@
-include ':ijkplayer-armv5', ':ijkplayer-x86_64', ':ijkpleyerdemo'
-include ':ijkplayer-armv7a'
-include ':ijkplayer-arm64'
-include ':ijkplayer-x86'
-
+include ':ijkplayer-armv5', ':ijkplayer-x86_64', ':ijkplayer-armv7a', ':ijkplayer-arm64', ':ijkplayer-x86'
+include ':ijkpleyerdemo', ':lmnview'
+include ':ijkplayerso'
 include ':ijkplayer-java'
-include ':ijkplayer-exo'
+//include ':ijkplayer-exo'
 
-include ':ijkplayer-example'
+//include ':ijkplayer-example'
 

@@ -1,10 +1,12 @@
 package com.ehang.ijkpleyerdemo;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.ContentUris;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.media.ExifInterface;
 import android.net.Uri;
@@ -12,6 +14,8 @@ import android.os.Build;
 import android.os.Environment;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -21,6 +25,8 @@ import android.widget.Toast;
 import java.io.File;
 import java.io.FileFilter;
 import java.io.IOException;
+import java.security.Permission;
+import java.security.Permissions;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -42,6 +48,10 @@ public class MainActivity extends AppCompatActivity {
             IjkMediaPlayer.native_profileBegin("libijkplayer.so");
         } catch (Exception e) {
             this.finish();
+        }
+
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
         }
 
         ijkPlayer = findViewById(R.id.ijk_player);

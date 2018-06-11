@@ -1,5 +1,8 @@
 apply plugin: 'com.android.library'
 
+apply plugin: 'com.github.dcendents.android-maven'
+
+group = 'com.github.ijkplayerjava'
 android {
     // http://tools.android.com/tech-docs/new-build-system/tips
     //noinspection GroovyAssignabilityCheck
@@ -23,7 +26,7 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
 }
 
-apply from: new File(rootProject.projectDir, "tools/gradle-on-demand.gradle");
+apply from: new File(rootProject.projectDir, "tools/gradle-on-demand.gradle")
