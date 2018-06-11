@@ -1,6 +1,5 @@
 .gradle
 /local.properties
-/.idea
 .DS_Store
 /build
 /captures
@@ -8,3 +7,4 @@ android-ndk-prof
 *.iml
 test
 androidTest
+.idea
