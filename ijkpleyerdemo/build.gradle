@@ -38,12 +38,12 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     implementation project(':ijkplayer-java')
+    implementation project(':ijkplayerso')
 //    implementation project(':ijkplayer-armv5')
 //    implementation project(':ijkplayer-armv7a')
 //    implementation project(':ijkplayer-arm64')
 //    implementation project(':ijkplayer-x86')
 //    implementation project(':ijkplayer-x86_64')
-    implementation project(':ijkplayerso')
 //    compile project(':ijkplayer-exo')
 
     implementation 'com.android.support:design:27.1.1'

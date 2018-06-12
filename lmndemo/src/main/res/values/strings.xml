@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">LmnPlayer</string>
+    <string name="title_activity_video">VideoActivity</string>
+</resources>
